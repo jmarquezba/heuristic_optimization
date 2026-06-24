@@ -1,0 +1,10 @@
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+PyYAML>=6.0
+imageio>=2.31
+pytest>=7.4
+# Opcionales para mapas con fondo geográfico (fallback a dispersión si faltan):
+# geopandas>=0.13
+# contextily>=1.3

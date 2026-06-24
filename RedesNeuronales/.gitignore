@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Temporales de generación por etapas
+data/results/_parts/
+data/results/_tsp_parts/
+reports/_pytest_raw.txt
+
+# Resultados regenerables (se producen con run_all.py)
+# data/results/*.csv
+# assets/figures/*.png
+# assets/gifs/*.gif
+# assets/gifs/*.mp4
+
+# Conservar carpetas vacías
+!data/results/.gitkeep
+!assets/figures/.gitkeep
+!assets/gifs/.gitkeep
+
+# SO / editores
+.DS_Store
+.idea/
+.vscode/
+
+# Material de clase (evitar archivos > 100MB)
+MaterialClase/

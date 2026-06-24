@@ -1,0 +1,34 @@
+# Configuración del TSP de Francia continental (Parte 2).
+
+seed_base: 1983
+base_scenario: medio
+
+# Vehículo del recorrido (escenario base, SPEC S5).
+vehicle:
+  marca: Renault
+  modelo: Clio V 1.0 TCe
+  combustible: "Gasolina (SP95-E10)"
+  consumo_l_100km: 5.3        # WLTP mixto (orden de magnitud)
+  precio_combustible_l: 1.75  # EUR/L (orden de magnitud 2024-2025 Francia)
+
+# Parámetros del modelo de costos (supuestos S2-S4).
+cost_params:
+  road_factor: 1.30
+  avg_speed_kmh: 90.0
+  frac_autopista: 0.70
+  toll_eur_per_km: 0.092
+
+# Estudio del valor de la hora del vendedor (EUR/h).
+valor_hora_scenarios:
+  bajo: 15.0
+  medio: 30.0
+  alto: 50.0
+
+# --------------------------------------------------------------------------- #
+fast:
+  aco: {n_ants: 20, n_iter: 60, alpha: 1.0, beta: 4.0, evaporation_rate: 0.1, intensification: 1.0}
+  ga: {pop_size: 100, n_gen: 150, elite_frac: 0.05, mutation_rate: 0.2, tournament_k: 5}
+
+full:
+  aco: {n_ants: 40, n_iter: 400, alpha: 1.0, beta: 5.0, evaporation_rate: 0.1, intensification: 1.0}
+  ga: {pop_size: 300, n_gen: 800, elite_frac: 0.05, mutation_rate: 0.25, tournament_k: 6}

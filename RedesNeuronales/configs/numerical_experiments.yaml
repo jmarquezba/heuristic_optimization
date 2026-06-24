@@ -1,0 +1,58 @@
+# Configuración de experimentos numéricos (Parte 1).
+# Dos perfiles: fast (validación rápida) y full (cumple los requisitos).
+# El runner selecciona el perfil; los bloques comparten claves comunes.
+
+seed_base: 1983
+functions:
+  - rosenbrock
+  - rastrigin
+  - schwefel
+  - griewank
+  - goldstein_price
+  - six_hump_camel
+dims: [2, 3]
+
+# Tolerancia de éxito por función (|f_final - f_opt| < tol). Ambigüedad A3.
+success_tol:
+  rosenbrock: 1.0e-2
+  rastrigin: 1.0e-1
+  schwefel: 1.0e+0
+  griewank: 1.0e-2
+  goldstein_price: 1.0e-2
+  six_hump_camel: 1.0e-3
+
+# --------------------------------------------------------------------------- #
+fast:
+  gradient_descent:
+    n_runs: [30, 50]          # validación; el full usa [100, 500, 1000]
+    lr: 1.0e-3
+    lr_per_function:          # tasas ajustadas por escala del dominio
+      schwefel: 1.0e-1
+      griewank: 5.0e-1
+      goldstein_price: 1.0e-5
+    max_iter: 500
+    grad_tol: 1.0e-6
+    f_tol: 1.0e-10
+  heuristics:
+    n_runs: 10
+    evolutionary: {pop_size: 40, max_gen: 80, elite_frac: 0.1, mutation_rate: 0.2, mutation_sigma: 0.1}
+    pso: {n_particles: 30, max_iter: 80, w: 0.7, c1: 1.5, c2: 1.5}
+    differential_evolution: {pop_size: 30, max_gen: 80, F: 0.7, CR: 0.9}
+
+# --------------------------------------------------------------------------- #
+full:
+  gradient_descent:
+    n_runs: [100, 500, 1000]  # requisito del enunciado
+    lr: 1.0e-3
+    lr_per_function:
+      schwefel: 1.0e-1
+      griewank: 5.0e-1
+      goldstein_price: 1.0e-5
+    max_iter: 2000
+    grad_tol: 1.0e-6
+    f_tol: 1.0e-10
+  heuristics:
+    n_runs: 30                # >= 30 corridas independientes
+    evolutionary: {pop_size: 60, max_gen: 200, elite_frac: 0.1, mutation_rate: 0.2, mutation_sigma: 0.1}
+    pso: {n_particles: 40, max_iter: 200, w: 0.7, c1: 1.5, c2: 1.5}
+    differential_evolution: {pop_size: 40, max_gen: 200, F: 0.7, CR: 0.9}
