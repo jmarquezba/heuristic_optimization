@@ -454,14 +454,14 @@ cerca de 0.
 
 ![Boxplot Schwefel 2D](../assets/figures/boxplot_schwefel_2d.png)
 
-**Figura A3.** *Histograma del valor final del GD — Rastrigin 2D (n=60).* Varias
+**Figura A3.** *Histograma del valor final del GD — Rastrigin 2D (n=1000).* Varias
 modas: cada inicialización cae en una cuenca distinta.
 
-![Histograma valor final GD Rastrigin](../assets/figures/gradient_descent_rastrigin_2d_n60_final_values.png)
+![Histograma valor final GD Rastrigin](../assets/figures/gradient_descent_rastrigin_2d_n1000_final_values.png)
 
-**Figura A4.** *Histograma del número de evaluaciones (NFE) del GD — Rastrigin 2D.*
+**Figura A4.** *Histograma del número de evaluaciones (NFE) del GD — Rastrigin 2D (n=1000).*
 
-![Histograma NFE GD Rastrigin](../assets/figures/gradient_descent_rastrigin_2d_n60_evaluations.png)
+![Histograma NFE GD Rastrigin](../assets/figures/gradient_descent_rastrigin_2d_n1000_evaluations.png)
 
 **Figura A5.** *Comparación de la mejor ruta ACO vs. GA sobre Francia continental.*
 
